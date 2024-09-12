@@ -28,6 +28,8 @@ app.listen(process.env.PORT, () => {
 // Rutas
 app.get('/api/tareas/', obtenerTareas);
 app.post('/api/tareas/', crearTareas);
+app.put('/api/tareas/:id', editarTarea);
+app.delete('/api/tareas/:id', eliminarTarea)
 
 // Controlador
 async function obtenerTareas(req, res) {
@@ -54,6 +56,32 @@ async function crearTareas(req, res) {
     }
 }
 
+async function editarTarea(req, res){
+    const {id} = req.params;
+    const {nombre} = req.body;
+
+    if (!nombre) {
+        return res.status(400).json({ message: 'El nombre de la tarea es obligatoria' });
+    }
+    try {
+        await actualizarTarea(id, nombre);
+        res.status(200).json({message: 'Tarea actualizada'})
+    }catch(error){
+        console.log(error);
+        res.status(500).json({ message: 'Error al actualizar la tarea '});
+    }
+}
+
+async function eliminarTarea(req, res){
+    const  { id }= req.params;
+    try{
+        await borrarTarea(id);
+        res.status(200).json({ message: 'Tarea eliminada'})
+    }catch(error){
+        console.log(error);
+        res.status(500).json({ message: 'Error al eliminar la tarea'})
+    }
+}
 // Modelo
 function obtenerAllTareas() {
     return new Promise((resolve, reject) => {
@@ -75,6 +103,30 @@ function crearTarea(nombre) {
             } else {
                 resolve(resultado);
             }
-        });
-    });
+        })
+    })
+}
+
+function actualizarTarea(id, nombre){
+    return new Promise((resolve, reject)=> {
+        conexion.query('UPDATE tareas SET nombre = ? WHERE id = ?', [nombre, id], (error, resultado)=> {
+            if (error){
+                reject(error);
+            }else{
+                resolve(resultado.insertId);
+            }
+        })
+    })
+}
+
+function borrarTarea(id){
+    return new Promise((resolve, reject)=> {
+        conexion.query('DELETE FROM tareas WHERE id = ?', [id], (error, resultado) => {
+            if( error){
+                reject(error);
+            }else {
+                resolve(resultado);
+            }
+        })
+    })
 }
