@@ -3,25 +3,26 @@ const express = require('express');
 const app =  express();
 const mysql = require('mysql')
 const cors = require('cors')
+const dotenv = require('dotenv')
+
+dotenv.config();
 
 
 const conexion = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '2147',
-    database: 'ManejadorTareas'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 })
 
 conexion.connect();
-
-const puerto = 3000;
 
 app.use(express.json());
 app.use(cors());
 app.use(express.static('publico'));
 
-app.listen(puerto, () => {
-    console.log(`Servidor ejecutando en http://localhost:${puerto}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor ejecutando en http://localhost:${process.env.PORT}`);
 });
 
 // Rutas
@@ -56,7 +57,7 @@ async function crearTareas(req, res) {
 // Modelo
 function obtenerAllTareas() {
     return new Promise((resolve, reject) => {
-        conexion.query('SELECT * FROM tareas', (error, resultado) => {  // Corrección de 'form' a 'from'
+        conexion.query('SELECT * FROM tareas', (error, resultado) => {  
             if (error) {
                 reject(error);
             } else {
@@ -68,7 +69,7 @@ function obtenerAllTareas() {
 
 function crearTarea(nombre) {
     return new Promise((resolve, reject) => {
-        conexion.query('INSERT INTO tareas (nombre) VALUES (?)', [nombre], (error, resultado) => {  // Corrección de paréntesis
+        conexion.query('INSERT INTO tareas (nombre) VALUES (?)', [nombre], (error, resultado) => {  
             if (error) {
                 reject(error);
             } else {
