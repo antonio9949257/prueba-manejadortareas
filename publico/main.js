@@ -25,18 +25,20 @@ async function cargarTarea() {
         const li = document.createElement('li');
         li.textContent = tarea.nombre;
 
-        // Botón para editar
+        const accionesDiv = document.createElement('div');
+        accionesDiv.className = 'acciones';
+
         const editarBoton = document.createElement('button');
         editarBoton.textContent = 'Editar';
         editarBoton.onclick = () => editaTarea(tarea.id, tarea.nombre);
 
-        // Botón para eliminar
         const eliminarBoton = document.createElement('button');
         eliminarBoton.textContent = 'Eliminar';
-        eliminarBoton.onclick = () => eliminaTarea(tarea.id); // Cambiar deleteButton a eliminarBoton
+        eliminarBoton.onclick = () => eliminaTarea(tarea.id);
 
-        li.appendChild(editarBoton);
-        li.appendChild(eliminarBoton);
+        accionesDiv.appendChild(editarBoton);
+        accionesDiv.appendChild(eliminarBoton);
+        li.appendChild(accionesDiv);
         listaTareas.appendChild(li);
     });
 }
