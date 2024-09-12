@@ -102,7 +102,7 @@ Crea una base de datos en MySQL para la aplicación:
     ```sql
     CREATE TABLE tareas (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        descripcion VARCHAR(255) NOT NULL,
+        nombre VARCHAR(255) NOT NULL,
     );
     ```
     
