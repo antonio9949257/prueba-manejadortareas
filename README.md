@@ -1,7 +1,7 @@
 
 # Gestión de Tareas 
 ![P R U E B A S](.demo.png)
-
+![P R U E B A S](.demo1.png)
 Este proyecto es una aplicación de gestión de tareas que permite a los usuarios crear, listar, editar y eliminar tareas, almacenando los datos en una base de datos MySQL. El frontend está desarrollado en HTML, CSS y JavaScript, y el backend está implementado en Node.js con el framework Express. MySQL se utiliza como sistema de gestión de bases de datos.
 
 ## Requisitos Previos
