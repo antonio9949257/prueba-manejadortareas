@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 1500px;
+    margin: 20px auto;
+    content: center;
+    height: 780px;
+}
+
+
+.caja {
+    width: 700px;
+    margin: auto auto; 
+    text-align: center;
+    border: 1px solid #ca8f8f;
+    border-radius: 20px;
+    height: 600px;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    padding:10px;
+    height: auto;
+    box-sizing: border-box;
+}
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 200px;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+.navbar {
+    background-color: #1c2130;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: #1c2130;
+    font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+.navbar ul li a:hover {
+    background-color: #028f76;
+    border-radius: 4px;
+}
+
+.img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0.7; 
+    /* filter: brightness(1.2) contrast(1.2); */
+}
+
+h1, h3{
+    color: #000;
+    font-size: 400; /*Cambiar tamaño de fuente*/
+    text-align: center;
+}
+
+form {
+    margin-top: 40px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    list-style: none;
+    padding: 0;
+}
+
+ol{
+    text-align: left;
+}
+li {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+button {
+    padding: 5px 10px;
+    margin: 0 5px 
+}
+
+.acciones {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+ 
+footer {
+    background-color: #1c2130;
+    color: #ffeaad;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}

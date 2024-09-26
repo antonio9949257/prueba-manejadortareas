@@ -85,7 +85,7 @@ Crea una base de datos en MySQL para la aplicación:
     mysql -u root -p
     ```
     
-2. Crea una base de datos llamada `gestion_tareas`:
+2. Crea una base de datos llamada `ManejadorTareas`:
     
     ```sql
     CREATE DATABASE ManejadorTareas;
@@ -121,7 +121,7 @@ El contenido del archivo `.env` debería ser similar a:
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=tu_contraseña
-DB_NAME=gestion_tareas
+DB_NAME=ManejadorTareas
 PORT=3000
 ```
 
